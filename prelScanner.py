@@ -18,9 +18,19 @@ elif os == "Windows":
 
 # Get host from user
 remoteServer = input("Enter a remote host to scan: ")
+
+# Format host input
+if remoteServer[:7] == "http://":
+    remoteServer = remoteServer[7:]
+elif remoteServer[:8] == "https://":
+    remoteServer = remoteServer[8:]
+
+
+# Get port from user
 remoteServerHost = socket.gethostbyname(remoteServer)
 portRange1 = int(input("Specify the lowest port number to scan: "))
 portRange2 = int(input("Specify the highest port number to scan: "))
+
 
 # Print status messages
 print("_" * 60)
