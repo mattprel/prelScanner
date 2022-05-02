@@ -39,13 +39,15 @@ print(remoteServer)
 # Get port from user
 remoteServerHost = socket.gethostbyname(remoteServer)
 portRange1 = int(input("Specify the lowest port number to scan: "))
-portRange2 = int(input("Specify the highest port number to scan: "))
-timeoutLength = float(
+portRange2 = int(input("Specify the highest port number to scan: ")) + 1
+timeoutLength = (
     input(
-        "Please enter the amount of time in seconds before the script gives up connecting to a port (recommended: 0.2): "
+        "Please enter the amount of time in seconds before the script gives up connecting to a port (default: 0.2): "
     )
+    or 0.2
 )
 
+timeoutLength = float(timeoutLength)
 
 # Print status messages
 print("_" * 60)
